@@ -1,0 +1,7 @@
+-- Critical blockers not updated in 24 hours
+project in (OPS, ERP, DATA)
+AND statusCategory != Done
+AND priority in (Highest, High)
+AND labels = blocker
+AND updated <= -24h
+ORDER BY priority DESC, updated ASC

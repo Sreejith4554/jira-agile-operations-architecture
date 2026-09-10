@@ -1,0 +1,11 @@
+-- Open issues in the active sprint by delivery risk
+project = OPS
+AND sprint in openSprints()
+AND statusCategory != Done
+ORDER BY priority DESC, due ASC
+
+-- Items added after sprint start (scope volatility proxy)
+project = OPS
+AND sprint in openSprints()
+AND created >= startOfWeek()
+ORDER BY created DESC

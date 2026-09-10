@@ -1,0 +1,12 @@
+-- Dependencies due within seven days
+issuetype = Dependency
+AND statusCategory != Done
+AND due <= 7d
+AND due >= startOfDay()
+ORDER BY due ASC
+
+-- Overdue dependencies
+issuetype = Dependency
+AND statusCategory != Done
+AND due < startOfDay()
+ORDER BY due ASC

@@ -1,0 +1,10 @@
+-- Open high-priority delivery risks
+statusCategory != Done
+AND priority in (Highest, High)
+AND issuetype in (Risk, Bug, Blocker, Dependency)
+ORDER BY priority DESC, updated ASC
+
+-- Items waiting for decision
+statusCategory != Done
+AND labels = decision-required
+ORDER BY due ASC, priority DESC
